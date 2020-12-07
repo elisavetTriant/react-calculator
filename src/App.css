@@ -1,38 +1,264 @@
-.App {
+/*Styles: https://codepen.io/thepeted/pen/avLwNw 
+Based on dribble design by Paco https://dribbble.com/shots/1009776-Calculator-for-Smartisan-OS
+*/
+
+@font-face
+{
+  font-family: digital;
+  src: url(https://res.cloudinary.com/thepeted/raw/upload/v1507751384/DSDIGI_ctlean.ttf);
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  background: linear-gradient(135deg, #3a7f99, #34495e) fixed;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  font-family: 'Open Sans';
+  font-weight: 700;
+}
+
+/*
+.clearfix{
+  clear: both;
+}
+
+.calculator {
+  background: #E7E5E4;
+  width: 264px;
+  padding: 0 10px 10px 10px;
+  border: 1px solid hsl(0,02%,65%);
+  border-radius: 6px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3); 
+    position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.wrapper {
+  position: relative;
+  width: 264px;
+  margin: 0 auto;
+}
+
+.logo {
+  font-size: 0.5em;
   text-align: center;
+  color: hsl(0,0%,55%);
+  margin: 5px auto;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.display {
+  font-family: 'digital';
+  color: hsl(25, 5%, 30%);
+  position: relative;
+  border: 3px inset #fff;
+  margin-bottom: 15px;
+  width: 258px;
+  border-radius: 8px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+#mem-indicator {
+  font-size: 1.4em;
+  position: absolute;
+  top: 6px;
+  left: 8px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+input {
+  font-family: inherit;
+  padding:0.05em 8px;
+  letter-spacing: 0.02em;
+  font-size: 2.5em;
+  text-align: right;
+  width: 236px;
+  background: #C8CAAF;
+  border: 3px solid hsl(25,10%,30%);
+  border-radius: 5px;
 }
 
-.App-link {
-  color: #61dafb;
+button {
+display: block;
+  float: left;
+  margin: 4px;
+  width: 58px;
+  height: 40px;
+  font-size: 1.25em;
+  border-radius: 6px;
+  -webkit-tap-highlight-color: transparent;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.double-width-btn {
+  width: 124px;
+}
+
+.double-height-btn {
+ height: 86px;
+}
+
+button:focus, button:hover {
+  outline: 0;
+}
+
+button:active {
+ box-shadow: none;
+}
+
+.mem-key {
+  font-size: 1em;
+  background-image: linear-gradient(to top, hsl(40,4%,27%), hsl(40,4%,35%) );
+  color: #FEFCF7;
+  border: 1px solid hsl(0,2%,50%);
+  box-shadow: 1px 6px 2px 0px rgba(0,0,0,0.06);
+ 
+}
+
+.mem-key:active {
+  background-image: linear-gradient(to bottom, hsl(40,4%,32%), hsl(40,4%,37%)  );
+}
+
+.numbers {
+  background-image: linear-gradient(to top, hsl(42,2%,90%), hsl(42,2%,95%) );
+  color: hsl(25, 5%, 35%);
+  border: 1px solid hsl(42,2%,70%);
+  box-shadow: 1px 6px 2px 0px rgba(0,0,0,0.04);
+}
+
+.numbers:active {
+  background-image: linear-gradient(to bottom, hsl(42,2%,90%), hsl(42,2%,95%) );
+  
+}
+  
+.op-key {
+  background-image: linear-gradient(to top, hsl(0,0%,55%), hsl(0,0%,60%) );
+  color: #FEFCF7;
+  border: 1px solid hsl(0,2%,50%);
+  box-shadow: 1px 6px 2px 0px rgba(0,0,0,0.06);
+}
+
+.op-key:active {
+  background-image: linear-gradient(to bottom, hsl(0,0%,55%), hsl(0,0%,60%) );
+}
+
+.eq {
+  background-image: linear-gradient(to top, hsl(13,85%,65%), hsl(13,85%,71%) );
+  color: #FEFCF7;
+  border: 1px solid hsl(23,3%,56%); 
+  box-shadow: 1px 6px 2px 0px rgba(0,0,0,0.06);
+  position: absolute;
+  bottom: 0px;
+  right:  0px;
+}
+
+.eq:active {
+  background-image: linear-gradient(to bottom, hsl(13,85%,65%), hsl(13,85%,71%) );
+}
+*/
+.calculator {
+  background: #E7E5E4;
+  width: 300px;
+  padding: 0 10px 10px 10px;
+  border: 1px solid hsl(0,02%,65%);
+  border-radius: 6px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3); 
+    position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.wrapper {
+  position: relative;
+  width: 300px;
+  margin: 0 auto;
+}
+
+.calculator input {
+  /* reset basic form styles */
+  font-family: 'digital';
+  color: hsl(25, 5%, 30%);
+  position: relative;
+  border: 3px inset #fff;
+  margin-bottom: 15px;
+  width: 96%;
+  min-height: 50px;
+  border-radius: 8px;
+  margin-top: 10px;
+  overflow: hidden;
+  font-size: 2.5em;
+  text-align: right;
+  
+}
+
+button:focus, button:hover {
+  outline: 0;
+}
+
+button:active {
+ box-shadow: none;
+}
+
+.calc-button {
+  /* larger fonts */
+  margin: 4px;
+  padding:10px 25px;
+  font-size: 1.25em;
+  border-radius: 6px;
+}
+
+.calculator-buttons {
+  /* small spacing within our container */
+  padding: 5px;
+  /* the grid stuff! */
+  display: grid;
+  /* create 4 columns */
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  /* add the grid gap */
+  grid-gap: 5px;
+}
+
+.is-clear {
+  grid-column: span 3;
+}
+
+.is-zero {
+  grid-column: span 2;
+}
+
+
+.op-key {
+  background-image: linear-gradient(to top, hsl(0,0%,55%), hsl(0,0%,60%) );
+  color: #FEFCF7;
+  border: 1px solid hsl(0,2%,50%);
+  box-shadow: 1px 6px 2px 0px rgba(0,0,0,0.06);
+}
+
+.op-key:active {
+  background-image: linear-gradient(to bottom, hsl(0,0%,55%), hsl(0,0%,60%) );
+}
+
+.numbers {
+  background-image: linear-gradient(to top, hsl(42,2%,90%), hsl(42,2%,95%) );
+  color: hsl(25, 5%, 35%);
+  border: 1px solid hsl(42,2%,70%);
+  box-shadow: 1px 6px 2px 0px rgba(0,0,0,0.04);
+}
+
+.numbers:active {
+  background-image: linear-gradient(to bottom, hsl(42,2%,90%), hsl(42,2%,95%) );
+  
+}
+
+.eq {
+  background-image: linear-gradient(to top, hsl(13,85%,65%), hsl(13,85%,71%) );
+  color: #FEFCF7;
+  border: 1px solid hsl(23,3%,56%); 
+  box-shadow: 1px 6px 2px 0px rgba(0,0,0,0.06);
+}
+
+.eq:active {
+  background-image: linear-gradient(to bottom, hsl(13,85%,65%), hsl(13,85%,71%) );
 }
